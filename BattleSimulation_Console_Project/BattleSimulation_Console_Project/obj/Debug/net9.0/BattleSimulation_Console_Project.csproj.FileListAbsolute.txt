@@ -1,0 +1,15 @@
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\bin\Debug\net9.0\BattleSimulation_Console_Project.exe
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\bin\Debug\net9.0\BattleSimulation_Console_Project.deps.json
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\bin\Debug\net9.0\BattleSimulation_Console_Project.runtimeconfig.json
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\bin\Debug\net9.0\BattleSimulation_Console_Project.dll
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\bin\Debug\net9.0\BattleSimulation_Console_Project.pdb
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.GeneratedMSBuildEditorConfig.editorconfig
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.AssemblyInfoInputs.cache
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.AssemblyInfo.cs
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.csproj.CoreCompileInputs.cache
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.sourcelink.json
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.dll
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\refint\BattleSimulation_Console_Project.dll
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.pdb
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\BattleSimulation_Console_Project.genruntimeconfig.cache
+E:\edu\04-oop-console-project-dev-LS-archive\BattleSimulation_Console_Project\BattleSimulation_Console_Project\obj\Debug\net9.0\ref\BattleSimulation_Console_Project.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "BattleSimulation_Console_Project/1.0.0": {
+        "runtime": {
+          "BattleSimulation_Console_Project.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BattleSimulation_Console_Project/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

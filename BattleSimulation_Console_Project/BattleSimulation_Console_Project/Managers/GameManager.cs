@@ -3,11 +3,13 @@
 public class GameManager
 {
     public static bool IsGameOver { get; set; }
-    public const string GameName = "아무튼 RPG";
+    public const string GameName = "Battle Simulation";
     private PlayerCharacter _player;
 
     public void Run()
     {
+        Console.CursorVisible = false;
+        
         Init();
         
         while (!IsGameOver)
