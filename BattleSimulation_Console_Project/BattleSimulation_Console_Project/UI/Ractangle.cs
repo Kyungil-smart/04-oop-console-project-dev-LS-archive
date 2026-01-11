@@ -60,4 +60,14 @@ public struct Ractangle
             else '-'.Print();
         }
     }
+    // 외부 호출시 요소 설정의 번거로움 줄이기 위한 오버라이드
+    public void Draw(int x, int y, int width, int height)
+    {
+        X = x;
+        Y = y;
+        Width = width;
+        Height = height;
+        
+        Draw();
+    }
 }

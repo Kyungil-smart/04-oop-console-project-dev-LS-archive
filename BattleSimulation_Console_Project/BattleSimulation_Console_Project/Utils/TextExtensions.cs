@@ -74,7 +74,7 @@ public static class TextExtensions
     {
         for (int i = 0; i < art.Height; i++)
         {
-            // startX에 얼마가 들어오든 최소한 0을 보장해 에러방지
+            // 얼마가 들어오든 최소한 0을 보장해 에러방지
             Console.SetCursorPosition(Math.Max(0, x), Math.Max(0, y + i));
             art.Lines[i].Print(color);
         }

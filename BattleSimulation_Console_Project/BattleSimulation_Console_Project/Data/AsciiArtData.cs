@@ -1,6 +1,7 @@
 ﻿public static class AsciiArtData
 {
     // 구조체로 래핑
+    // 축자 문자열(가독성 향상)
     public static readonly AsciiArt Title = new(
     [
         @" ____        _   _   _                             ",

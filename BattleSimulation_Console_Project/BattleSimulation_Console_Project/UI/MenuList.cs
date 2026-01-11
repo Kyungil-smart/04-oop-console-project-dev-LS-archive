@@ -7,7 +7,7 @@ public class MenuList
     private List<(string text, Action action)> _menus;
     private int _currentIndex;
     public int CurrentIndex { get => _currentIndex; }
-    private Ractangle _outline;
+    public Ractangle _outline;
     private int _maxLength;
 
     public MenuList(params (string, Action)[] menuTexts)

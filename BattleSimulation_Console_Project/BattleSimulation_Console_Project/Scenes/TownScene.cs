@@ -23,6 +23,7 @@ public class TownScene : Scene
 
     public override void Enter()
     {
+        base.Enter();
         _player.Field = _field;
         _player.Position = new Vector(4, 2);
         _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
