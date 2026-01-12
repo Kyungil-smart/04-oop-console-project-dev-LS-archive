@@ -7,6 +7,7 @@ public class Inventory
     
     public bool IsActive { get; set; }
     public MenuList _itemMenu = new MenuList();
+    public int currentMaxHeight;
     
     private int _x, _y;
     // 외부에서 인벤토리 위치와 크기 접근
@@ -66,13 +67,16 @@ public class Inventory
         // 현재 렌더링할 실제 크기 계산
         int actualHeight = _itemMenu._outline.Height > 0 ? _itemMenu._outline.Height : invHeight;
         int actualWidth = _itemMenu._outline.Width > 0 ? _itemMenu._outline.Width : invWidth;
+
+        // 인벤토리를 켠 상태에선 못움직이고 사용만 가능하니 출력 시점이 제일 Height가 큼
+        currentMaxHeight = actualHeight + 6; // 여유 공간
         
         // 이전 프레임과 현재 프레임 중 더 큰 영역을 지움 (잔상 제거)
         int clearHeight = Math.Max(_lastRenderedHeight, actualHeight + 2); // +2는 제목과 가이드
         int clearWidth = Math.Max(actualWidth, 30) + 4; // 여유 공간
         
         string clearLine = new string(' ', clearWidth);
-        for (int i = -1; i < clearHeight; i++) // 제목(-1)부터 가이드+여유까지
+        for (int i = -2; i < clearHeight; i++) // 제목(-1)부터 가이드+여유까지
         {
             Console.SetCursorPosition(_x, _y + i);
             clearLine.PrintBackColor(ConsoleColor.DarkGray);
@@ -86,7 +90,7 @@ public class Inventory
         if (_items.Count == 0)
         {
             // 아이템이 없을 때의 기본 외곽선 및 메시지
-            _itemMenu._outline.X = _x;
+            _itemMenu._outline.X = _x + 1;
             _itemMenu._outline.Y = _y;
             _itemMenu._outline.Draw();
             Console.SetCursorPosition(_x + 2, _y + 1);
@@ -94,11 +98,11 @@ public class Inventory
         }
         else
         {
-            _itemMenu.Render(_x, _y);
+            _itemMenu.Render(_x + 1, _y);
         }
         
         // 하단 가이드 - 실제 외곽선 높이 기준으로 동적 배치
-        Console.SetCursorPosition(_x, _y + actualHeight);
+        Console.SetCursorPosition(_x + 1, _y + actualHeight);
         "I:닫기 Enter:사용".Print(ConsoleColor.DarkGray);
         
         // 현재 프레임의 높이를 저장 (다음 프레임에서 비교용)

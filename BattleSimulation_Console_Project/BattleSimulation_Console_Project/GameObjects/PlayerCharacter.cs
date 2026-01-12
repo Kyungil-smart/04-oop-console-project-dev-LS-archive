@@ -159,4 +159,12 @@ public class PlayerCharacter : GameObject
         Health.Value += value;
         if(Health.Value > maxHealth) Health.Value = maxHealth;
     }
+    
+    public void RestoreMana(int amount)
+    {
+        Mana.Value += amount;
+        if (Mana.Value > maxMana) Mana.Value = maxMana;
+    
+        // 배틀 로그 등에 메시지 출력
+    }
 }
