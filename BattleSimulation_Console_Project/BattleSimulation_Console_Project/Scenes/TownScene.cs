@@ -63,14 +63,7 @@ public class TownScene : Scene
                 }
             }
         }
-    }
-
-    public override void Enter()
-    {
-        base.Enter();
         
-        // 데이터 연결
-        _player.Field = _field;
         _player.Position = new Vector(11, 11);
         _field[_player.Position.Y, _player.Position.X].OnTileObject = _player;
 
@@ -88,6 +81,15 @@ public class TownScene : Scene
         _field[17, 13].OnTileObject = new Trap();
         _field[11, 27].OnTileObject = new Trap();
         _field[18, 6].OnTileObject = new Trap();
+        _field[6, 17].OnTileObject = new Trap();
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        
+        // 데이터 연결 복구
+        _player.Field = _field;
         
         DrawTopBar(); //상단 정보바 출력
         PrintField(); // 맵 전체 그리기
@@ -102,6 +104,12 @@ public class TownScene : Scene
 
     public override void Update()
     {
+        // 게임 오버
+        if (_player.Health.Value <= 0)
+        {
+            SceneManager.Change("GameOver");
+            return;
+        }
         if (InputManager.GetKey(ConsoleKey.I))
         {
             _player.HandleControl();
@@ -178,6 +186,9 @@ public class TownScene : Scene
         }
         else if (!_player.IsActiveControl) // 인벤토리 열려있음
         {
+            // 정보창(UI)을 먼저 갱신해서 HP 변화를 보여주고
+            UpdateUIStats();
+            // 그 위에 인벤토리를 그리기
             _player._inventory.Render(); 
             
             // 열려있는 동안 인벤토리의 최대 높이를 계속 추적

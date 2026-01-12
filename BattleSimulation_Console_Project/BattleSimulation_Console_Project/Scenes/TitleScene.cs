@@ -187,6 +187,13 @@ public class TitleScene : Scene
 
     public void GameStart()
     {
-        SceneManager.Change("Town");
+        // SceneManager.Change("Town");
+    
+        // 새로운 게임 시작
+        PlayerCharacter newPlayer = new PlayerCharacter();
+        newPlayer.playerName = "콘솔 전사"; // 혹은 입력받은 이름
+    
+        // 생성자를 통해 맵과 아이템을 새로 배치(Init)
+        SceneManager.Change(new TownScene(newPlayer));
     }
 }
