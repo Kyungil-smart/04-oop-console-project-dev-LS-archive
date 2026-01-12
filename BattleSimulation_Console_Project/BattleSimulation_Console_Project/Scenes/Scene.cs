@@ -7,6 +7,7 @@
     {
         Console.Clear();
         NeedsRedraw = true;
+        if (GetType().Name == "LogScene") return; // 로그씬 디버깅 방지
         Debug.Log($"[Scene] {this.GetType().Name}, 생성 및 렌더 클리어");
     }
     public abstract void Update();
