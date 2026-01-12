@@ -35,6 +35,22 @@ public static class TextExtensions
         if (color.HasValue) Console.ForegroundColor = originalColor;
         if (backColor.HasValue) Console.BackgroundColor = originalBack;
     }
+    
+    // 배경색만 지정
+    public static void PrintBackColor(this string text, ConsoleColor? backColor)
+    {
+        // 색상 변경 전, 기존 색상 저장
+        ConsoleColor originalBack = Console.BackgroundColor;
+
+        // 색상이 지정되었다면(null이 아니라면) 변경
+        if (backColor.HasValue) Console.BackgroundColor = backColor.Value;
+
+        // 텍스트 출력
+        Console.Write(text);
+
+        // 색상 복구 (ResetColor 대신 메서드 호출시점의 색으로 복구)
+        if (backColor.HasValue) Console.BackgroundColor = originalBack;
+    }
 
     // 줄바꿈 (WriteLine)
     public static void PrintLine(this string text, ConsoleColor? color = null, ConsoleColor? backColor = null)

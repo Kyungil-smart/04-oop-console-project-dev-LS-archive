@@ -2,16 +2,21 @@
 
 public class PlayerCharacter : GameObject
 {
+    private int maxHealth = 5, maxMana = 5;
     public ObservableProperty<int> Health = new ObservableProperty<int>(5);
     public ObservableProperty<int> Mana = new ObservableProperty<int>(5);
-    private string _healthGauge;
-    private string _manaGauge;
+    public string playerName="콘솔 전사";
+    
+    public string _healthGauge { get; private set; }
+    public string _manaGauge { get; private set; }
     
     public Tile[,] Field { get; set; }
-    private Inventory _inventory;
+    public Inventory _inventory { get; private set; }
     public bool IsActiveControl { get; private set; }
 
     public PlayerCharacter() => Init();
+    // 이동전 위치 기억
+    public Vector PreviousPosition { get; private set; }
 
     public void Init()
     {
@@ -19,8 +24,10 @@ public class PlayerCharacter : GameObject
         IsActiveControl = true;
         Health.AddListener(SetHealthGauge);
         Mana.AddListener(SetManaGauge);
-        _healthGauge = "■■■■■";
-        _manaGauge = "■■■■■";
+        
+        SetHealthGauge(maxHealth);
+        SetManaGauge(maxMana);
+        
         _inventory = new Inventory(this);
     }
 
@@ -29,9 +36,6 @@ public class PlayerCharacter : GameObject
         if (InputManager.GetKey(ConsoleKey.I))
         {
             HandleControl();
-            // 인벤토리를 열거나 닫을 때도 화면을 다시 그려야 함
-            // (Scene에서 NeedsRedraw를 true로 바꾸게 유도)
-            //return true;
         }
         
         // 조작권이 플레이어에게 있을 때만 이동
@@ -62,22 +66,20 @@ public class PlayerCharacter : GameObject
     {
         _inventory.IsActive = !_inventory.IsActive;
         IsActiveControl = !_inventory.IsActive;
-        Debug.LogWarning($"{_inventory._itemMenu.CurrentIndex}");
     }
 
     private void Move(Vector direction)
     {
         if (Field == null || !IsActiveControl) return;
         
-        Vector current = Position;
+        //Vector current = Position;
         Vector nextPos = Position + direction;
         
-        // 1. 맵 바깥은 아닌지?
+        // 맵 바깥인지 체크
         if (nextPos.X < 0 || nextPos.Y < 0 || nextPos.X >= Field.GetLength(1) || nextPos.Y >= Field.GetLength(0))
         {
             return;
         }
-        // 2. 벽인지?
 
         GameObject nextTileObject = Field[nextPos.Y, nextPos.X].OnTileObject;
 
@@ -98,6 +100,9 @@ public class PlayerCharacter : GameObject
                 return; 
             }
         }
+        
+        // 이동 확정 시, 현재 위치를 PreviousPosition에 저장
+        PreviousPosition = Position;
 
         // 위치 이동 처리
         Field[Position.Y, Position.X].OnTileObject = null;
@@ -107,9 +112,12 @@ public class PlayerCharacter : GameObject
 
     public void Render(int offsetX, int offsetY)
     {
-        DrawHealthGauge(offsetX, offsetY);
-        DrawManaGauge(offsetX, offsetY);
-        _inventory.Render();
+        //DrawHealthGauge(offsetX, offsetY);
+        //DrawManaGauge(offsetX, offsetY);
+        Console.SetCursorPosition(offsetX + Position.X, offsetY + Position.Y);
+        Symbol.Print();
+        
+        if (_inventory.IsActive)  _inventory.Render();
     }
 
     public void AddItem(Item item)
@@ -117,7 +125,7 @@ public class PlayerCharacter : GameObject
         _inventory.Add(item);
     }
 
-    public void DrawManaGauge(int offsetX, int offsetY)
+    /*public void DrawManaGauge(int offsetX, int offsetY)
     {
         Console.SetCursorPosition(offsetX + Position.X - 2, offsetY + Position.Y - 1);
         _manaGauge.Print(ConsoleColor.Blue);
@@ -127,7 +135,7 @@ public class PlayerCharacter : GameObject
     {
         Console.SetCursorPosition(offsetX + Position.X - 2, offsetY + Position.Y - 2);
         _healthGauge.Print(ConsoleColor.Red);
-    }
+    }*/
     
     private string GetGaugeString(int current, int max)
     {
@@ -149,5 +157,6 @@ public class PlayerCharacter : GameObject
     public void Heal(int value)
     {
         Health.Value += value;
+        if(Health.Value > maxHealth) Health.Value = maxHealth;
     }
 }

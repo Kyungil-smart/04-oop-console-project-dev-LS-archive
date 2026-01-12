@@ -34,6 +34,7 @@ public class TitleScene : Scene
         _logoOutline.Height = AsciiArtData.Title.Height + 3;
         _logoOutline.Width = AsciiArtData.Title.Width + 2;
         
+        
         // 크레딧 창 정보 미리 설정
         int crW = 55;
         int crH = 10;

@@ -4,7 +4,7 @@ public static class InputManager
 {
     private static ConsoleKey _current;
     private static DateTime _lastInputTime; // 입력 딜레이 관리 변수
-    private const double InputDelay = 100; // 0.1초 (100ms) 딜레이, 텍스트 RPG니 안불편한 선에서 길게 잡음
+    private const double InputDelay = 100; // 0.1초 (100ms) 딜레이
     public static bool HasInput => Console.KeyAvailable;
 
     private static readonly ConsoleKey[] _keys =
@@ -34,7 +34,7 @@ public static class InputManager
             return;
         }
         
-        // 마지막 입력 후 InputDelay(0.1초)가 안 지났으면 입력 무시
+        // 마지막 입력 후 InputDelay가 안 지났으면 입력 무시
         if ((DateTime.Now - _lastInputTime).TotalMilliseconds < InputDelay)
         {
             // 입력 버퍼 비우기 (중복 입력 방지)
