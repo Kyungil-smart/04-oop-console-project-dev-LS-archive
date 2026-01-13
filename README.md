@@ -1,3 +1,5 @@
+[![작업 내역 및 콘솔 프로젝트 소개](https://img.shields.io/badge/WorkDocs-blue?style=for-the-badge)](https://github.com/Kyungil-smart/04-oop-console-project-dev-LS-archive/blob/main/%EC%9E%91%EC%97%85%20%EB%82%B4%EC%97%AD%20%EB%B0%8F%20%EC%BD%98%EC%86%94%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%86%8C%EA%B0%9C.md)
+
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=22157903&assignment_repo_type=AssignmentRepo)
 
 ![라이더 자동생성 다이어그램](<Type Dependencies Diagram for Program and other elements.png>)
