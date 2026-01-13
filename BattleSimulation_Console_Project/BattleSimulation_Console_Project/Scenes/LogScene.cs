@@ -22,5 +22,10 @@ public class LogScene : Scene
         base.Enter();
         NeedsRedraw = true;
     }
-    public override void Exit() { }
+
+    public override void Exit()
+    {
+        Console.Clear();
+        Console.ResetColor();
+    }
 }
