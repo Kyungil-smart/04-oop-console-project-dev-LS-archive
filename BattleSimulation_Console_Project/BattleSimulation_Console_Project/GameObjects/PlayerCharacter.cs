@@ -87,7 +87,12 @@ public class PlayerCharacter : GameObject
         {
             if (nextTileObject is IInteractable)
             {
+                // 적과 닿으면 여기서 SceneManager.Change()가 실행되고 -> Field가 null이 됨
                 (nextTileObject as IInteractable).Interact(this);
+                
+                // 씬이 바뀌어서 필드가 사라졌으면 이동 중단
+                if (Field == null) return;
+                
                 // 아이템을 획득했다면 필드에서 제거 (잔상 및 중복 획득 방지)
                 if (nextTileObject is Item) 
                 {

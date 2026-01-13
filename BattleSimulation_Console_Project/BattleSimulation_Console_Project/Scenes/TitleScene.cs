@@ -22,7 +22,7 @@ public class TitleScene : Scene
         _titleMenu.Add("게임 종료", GameQuit);
         
         // 게임 이름 외곽선 (상단 배치)
-        _titleOutline.Width = GameManager.GameName.Length + 4;
+        _titleOutline.Width = GameManager.GameName.GetTextWidth() + 4;
         _titleOutline.Height = 3;
         // 로고 중앙에 배치
         _titleOutline.X = (AsciiArtData.Title.Width / 2) - (_titleOutline.Width / 2) + 2; 

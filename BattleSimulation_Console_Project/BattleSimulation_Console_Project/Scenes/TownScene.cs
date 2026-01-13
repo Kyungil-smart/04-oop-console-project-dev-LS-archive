@@ -82,6 +82,10 @@ public class TownScene : Scene
         _field[11, 27].OnTileObject = new Trap();
         _field[18, 6].OnTileObject = new Trap();
         _field[6, 17].OnTileObject = new Trap();
+        //적 생성
+        _field[5, 8].OnTileObject  = Enemy.Create(EnemyType.Slime, 8, 5);
+        _field[13, 26].OnTileObject = Enemy.Create(EnemyType.Goblin, 10, 10);
+        _field[15, 20].OnTileObject = Enemy.Create(EnemyType.Orc, 20, 15);
     }
 
     public override void Enter()
@@ -348,6 +352,10 @@ public class TownScene : Scene
                     {
                         potion.Symbol.Print(potion.Color);
                     }
+                    else if (tile.OnTileObject is Enemy enemy)
+                    {
+                        enemy.Symbol.Print(enemy.Color);
+                    }
                     else
                     {
                         // 일반 오브젝트(벽 등)는 기본색 출력
@@ -435,12 +443,27 @@ public class TownScene : Scene
         "> ".Print(ConsoleColor.Gray);
         '^'.Print(ConsoleColor.DarkGray); // Trap의 '^'
         ": 가시 함정 (HP -1)".Print(ConsoleColor.Gray);
-
-        // 4. 적 설명 (추후 확장용)
         Console.SetCursorPosition(uiX, logY + 7);
+        "----------------------------".Print(ConsoleColor.DarkGray);
+
+        // 4. 적 설명
+        Console.SetCursorPosition(uiX, logY + 8);
+        "적 목록 (전투 발생)".Print(ConsoleColor.Gray);
+        
+        Console.SetCursorPosition(uiX, logY + 10);
         "> ".Print(ConsoleColor.Gray);
-        'S'.Print(ConsoleColor.Green);
-        ": 적 슬라임 (전투 발생)".Print(ConsoleColor.Gray);
+        'S'.Print(ConsoleColor.Cyan);
+        ": 슬라임".Print(ConsoleColor.Gray);
+        
+        Console.SetCursorPosition(uiX, logY + 11);
+        "> ".Print(ConsoleColor.Gray);
+        'G'.Print(ConsoleColor.Green);
+        ": 고블린".Print(ConsoleColor.Gray);
+        
+        Console.SetCursorPosition(uiX, logY + 12);
+        "> ".Print(ConsoleColor.Gray);
+        'O'.Print(ConsoleColor.Red);
+        ": 오크".Print(ConsoleColor.Gray);
         
 
         //Console.SetCursorPosition(uiX, logY + 2);
